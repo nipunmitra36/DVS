@@ -18,7 +18,6 @@
     <!--css libaray-->
     <link rel="stylesheet" href="./assets/lib/owlcarousel/css/owl.carousel.css">
     <link rel="stylesheet" href="./assets/lib/owlcarousel/css/owl.theme.default.css">
-    <link rel="stylesheet" href="./assets/lib/owlcarousel/css/owl.carousel.css">
     <link rel="stylesheet" href="./assets/lib/wow/css/animate.css">
     <link rel="stylesheet" href="./assets/lib/bootstrap/css/bootstrap.css">
 
@@ -34,16 +33,49 @@
         <img class="loader" src="./assets/img/preloader/loader.gif" alt="">
     </div>
 
+    
+    <div class="button-group filter-button-group">
+        <button data-filter="*">show all</button>
+        <button data-filter=".metal">metal</button>
+        <button data-filter=".transition">transition</button>
+        <button data-filter=".alkali, .alkaline-earth">alkali & alkaline-earth</button>
+    </div>
+
+    <div class="grid">
+        <div class="alkali metal metal"><p class="number">80</p></div>
+        <div class="transition"><p class="number">42</p></div>
+        <div class="alkali alkaline-earth"><p class="number">20</p></div>
+        <div class="alkaline-earth"><p class="number">75</p></div>
+    </div>
+
+      
+      
+      
 
     <!-- back-to-top  -->
     <button onclick="topFunction()" id="myBtn" title="Go to top"><i class="fas fa-angle-up"></i></button>
 
+
+    <script>
+        // init Isotope
+var $grid = $('.grid').isotope({
+  // options
+});
+// filter items on button click
+$('.filter-button-group').on( 'click', 'button', function() {
+  var filterValue = $(this).attr('data-filter');
+  $grid.isotope({ filter: filterValue });
+});
+    </script>
+
     <!-- js-library  -->
     <script src="./assets/lib/wow/js/wow.js"></script>
     <script src="./assets/lib/bootstrap/js/bootstrap.bundle.js"></script>
-    <script src="./assets/jquery/jquery.js"></script>
     <script src="./assets/lib/owlcarousel/js/owl.carousel.js"></script>
-
+    <script src="./assets/jquery/jquery.js"></script>
+    <script src="https://unpkg.com/isotope-layout@3/dist/isotope.pkgd.js"></script>
+ 
+    
     <!-- main-js  -->
     <script src="./assets/js/main.js"></script>
 </body>

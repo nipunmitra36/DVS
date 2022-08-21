@@ -1,5 +1,18 @@
-// // wow js
-// new WOW().init();
+// wow js
+new WOW().init();
+
+// preloader 
+var loader = document.getElementById("preloader");
+window.addEventListener("load",function(){
+  loader.style.display="none";
+});
+
+// isotope 
+$('.grid').isotope({
+  // options
+  itemSelector: '.grid-item',
+  layoutMode: 'fitRows'
+});
 
 // owl carousel 
 $('.owl-carousel').owlCarousel({
@@ -19,10 +32,6 @@ $('.owl-carousel').owlCarousel({
   }
 })
 
-var loader = document.getElementById("preloader");
-window.addEventListener("load",function(){
-  loader.style.display="none";
-});
 
 
 //Get the button:

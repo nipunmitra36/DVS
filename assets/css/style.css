@@ -7,26 +7,6 @@
   --font-righteous: "Righteous", arial, sans-serif;
 }
 
- /* width */
- ::-webkit-scrollbar {
-  width: 6px;
-}
-
-/* Track */
-::-webkit-scrollbar-track {
-  background: #ffffff;
-}
-
-/* Handle */
-::-webkit-scrollbar-thumb {
-  background: rgb(255, 55, 55);
-}
-
-/* Handle on hover */
-::-webkit-scrollbar-thumb:hover {
-  background: rgb(255, 221, 0);
-} 
-
 
 /* basic-css  */
 * {
@@ -54,18 +34,21 @@ p {
   margin-bottom: 0;
   font-size: 1rem;
 }
-label,
-span {
-  font-weight: 500;
-}
+
 img {
   max-width: 100%;
   vertical-align: middle;
+  object-fit: cover;
 }
 h1,h2,h3,h4,h5,h6{
   padding-bottom: 0;
 }
-
+input,select,textarea:active,
+input,select,textarea:focus
+{
+  display: inline-block;
+  box-shadow: none !important;
+}
 /* custom-class  */
 .font-righteous {
   font-family: var(--font-righteous);

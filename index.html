@@ -10,16 +10,16 @@
     <title>Domain-Name - page-name</title>
 
     <!-- favicon  -->
-    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <!-- <link rel="shortcut icon" href="favicon.ico" type="image/x-icon"> -->
 
     <!--fontawsome-->
     <link rel="stylesheet" href="./assets/lib/fontawesome/css/all.css">
 
     <!--css libaray-->
-    <link rel="stylesheet" href="./assets/lib/owlcarousel/css/owl.carousel.css">
-    <link rel="stylesheet" href="./assets/lib/owlcarousel/css/owl.theme.default.css">
-    <link rel="stylesheet" href="./assets/lib/wow/css/animate.css">
     <link rel="stylesheet" href="./assets/lib/bootstrap/css/bootstrap.css">
+
+    <!-- jquery  -->
+    <script src="assets/jquery/jquery.js"></script>
 
     <!-- main-css  -->
     <link rel="stylesheet" href="./assets/css/style.css">
@@ -27,57 +27,88 @@
 
 </head>
 
-<body>
-    <!-- preloader  -->
-    <div id="preloader">
-        <img class="loader" src="./assets/img/preloader/loader.gif" alt="">
-    </div>
+<body class="bg-dark">
 
-    
-    <div class="button-group filter-button-group">
-        <button data-filter="*">show all</button>
-        <button data-filter=".metal">metal</button>
-        <button data-filter=".transition">transition</button>
-        <button data-filter=".alkali, .alkaline-earth">alkali & alkaline-earth</button>
-    </div>
+    <section>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mx-auto qrBox">
+                    <div class="card border-0 rounded-3 p-3">
+                        <input placeholder="Enter your text or URL" class="form-control mb-3" autofocus="autofocus" required type="text" id="qrtext">
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <input type="number" placeholder="Height" class="form-control mb-3" autofocus="autofocus" required type="text" id="height">
+                            </div>
+                            <div class="col-lg-6">
+                                <input type="number" placeholder="width" class="form-control mb-3" autofocus="autofocus" required type="text" id="width">
+                            </div> 
+                        </div>
+                       
+                        <img class="img-fluid mb-3" src="" alt="" id="qrimage" download>
+                        <div class="row gx-2">
+                            <div class="col-lg-6">
+                                <button class="btn btn-dark mb-3 w-100" id="QrGenaratebTn" onclick="QrGenarate()">QR Code Generate</button>
+                            </div>
 
-    <div class="grid">
-        <div class="alkali metal metal"><p class="number">80</p></div>
-        <div class="transition"><p class="number">42</p></div>
-        <div class="alkali alkaline-earth"><p class="number">20</p></div>
-        <div class="alkaline-earth"><p class="number">75</p></div>
-    </div>
+                            <div class="col-lg-6">
+                                <button onclick="download()" class="btn btn-secondary w-100" id="qrDownload" herf="">Download </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-      
-      
-      
 
-    <!-- back-to-top  -->
-    <button onclick="topFunction()" id="myBtn" title="Go to top"><i class="fas fa-angle-up"></i></button>
+
+
 
 
     <script>
-        // init Isotope
-var $grid = $('.grid').isotope({
-  // options
-});
-// filter items on button click
-$('.filter-button-group').on( 'click', 'button', function() {
-  var filterValue = $(this).attr('data-filter');
-  $grid.isotope({ filter: filterValue });
-});
+
+        let qrtext = document.getElementById('qrtext');
+        let qrimage = document.getElementById('qrimage');
+        let qrDownload = qrimage;
+        let height = document.getElementById('height');
+        let width = document.getElementById('width');
+
+        function download(){
+            alert("Ready for download");
+            qrDownload.herf = "https://api.qrserver.com/v1/create-qr-code/?size="+qrDownload.value;
+        }
+      
+
+        function QrGenarate() {
+            if(qrtext==""){
+                alert="ekjrwjker";
+            }
+            else{
+                qrimage.src = "https://api.qrserver.com/v1/create-qr-code/?size="+height.value+"x"+width.value+"&data=" + qrtext.value;
+            qrimage.alt = "qr-code-for-" + qrtext.value;
+            qrDownload.herf = "https://api.qrserver.com/v1/create-qr-code/?size="+qrDownload.value;
+            }
+        }
+        // Execute a function when the user presses a key on the keyboard
+        qrtext.addEventListener("keypress", function (event) {
+            // If the user presses the "Enter" key on the keyboard
+
+            if (event.key === "Enter") {
+                // Cancel the default action, if needed
+                event.preventDefault();
+                // Trigger the button element with a click
+                document.getElementById("QrGenaratebTn").click();
+            }
+
+        });
+
+
     </script>
 
     <!-- js-library  -->
-    <script src="./assets/lib/wow/js/wow.js"></script>
-    <script src="./assets/lib/bootstrap/js/bootstrap.bundle.js"></script>
-    <script src="./assets/lib/owlcarousel/js/owl.carousel.js"></script>
-    <script src="./assets/jquery/jquery.js"></script>
-    <script src="https://unpkg.com/isotope-layout@3/dist/isotope.pkgd.js"></script>
- 
-    
+    <!-- <script src="./assets/lib/bootstrap/js/bootstrap.bundle.js"></script> -->
     <!-- main-js  -->
-    <script src="./assets/js/main.js"></script>
+    <!-- <script src="./assets/js/main.js"></script> -->
 </body>
 
 </html>
